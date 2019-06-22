@@ -1,8 +1,41 @@
 import Vue from 'vue'
-import App from './App.vue'
+import VueRouter from 'vue-router'
+import App from './components/index2'
 
-Vue.config.productionTip = false
+Vue.use(VueRouter);
+
+Vue.config.productionTip = false;
+const router = new VueRouter([
+  {
+    path:'',
+    meta:{
+      breadcrumbs:'Главная'
+    },
+    name:'index',
+    component:'./components/index2',
+    children:[
+      {
+        path:'cats',
+        meta:{
+          breadcrumbs: 'Категории'
+        },
+        name:'cats',
+
+      },
+      {
+        path:'event',
+        meta:{
+          breadcrumbs: 'Событие'
+        },
+        name:'event'
+      }
+    ]
+  }
+
+]);
+
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+  router
+}).$mount('#app');
