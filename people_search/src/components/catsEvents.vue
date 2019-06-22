@@ -1,7 +1,11 @@
 <template>
     <div>
-        <h1>События</h1>
-        <div class="row">
+        <div class="col-12 headline">
+            <router-link to="/" class="back"><span>&#8592;</span></router-link>
+            <h1>События</h1>
+        </div>
+
+        <div class="row" style="margin-right: 0">
             <router-link to="/event" class="col-10 tabsSobityi">
                 <div>
                     <p>Транспортные</p>
@@ -64,6 +68,9 @@
 <style scoped>
     h1{
         color: #02248C;
+
+    }
+    .headline{
         text-align: center;
     }
     .tabsSobityi{
@@ -84,5 +91,18 @@
         font-size: 30px;
         margin-top: -50px;
         float: right;
+    }
+    .back{
+        display: inline-block;
+        margin-top: -19px;
+        margin-left: -15px;
+        float: left
+    }
+    .back:hover{
+        text-decoration: none;
+    }
+    .back span{
+        font-size: 50px;
+        color: #02248C;
     }
 </style>

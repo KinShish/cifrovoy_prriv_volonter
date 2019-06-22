@@ -3,7 +3,10 @@
         <header>
             <comHeader></comHeader>
         </header>
-        <h1>Меню</h1>
+        <div class="col-12">
+            <router-link to="/" class="back"><span>&#8592;</span></router-link>
+            <h1>Меню</h1>
+        </div>
         <div class="container">
             <div class="row">
                 <router-link to="cats/events" class="col-5 cardsEvents">

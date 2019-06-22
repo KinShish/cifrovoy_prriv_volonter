@@ -88,9 +88,6 @@
         top: 36px;
         cursor: pointer;
     }
-    div.bm-menu{
-        background: red;
-    }
     .bm-menu {
         height: 100%; /* 100% Full-height */
         width: 0; /* 0 width - change this with JavaScript */
@@ -120,4 +117,5 @@
         font-size: 50px;
         color: black;
     }
+
 </style>
