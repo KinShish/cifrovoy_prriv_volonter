@@ -1,0 +1,70 @@
+<template>
+    <b-container>
+        <b-row>
+            <b-col cols="12" class="divName">
+                <p class="name">People search</p>
+            </b-col>
+            <b-col cols="12" class="logo">
+                <img src="logo.png">
+            </b-col>
+            <b-col cols="12" class="divVxod">
+                <b-button variant="button">Регистрация</b-button>
+            </b-col>
+            <b-col cols="12" class="divVxod">
+                <b-button variant="button">Вход</b-button>
+            </b-col>
+            <b-col cols="12" class="divVxodBez">
+                <b-button variant="button">Вход без регистрации</b-button>
+            </b-col>
+        </b-row>
+    </b-container>
+</template>
+
+<script>
+    export default {
+        name: "index"
+    }
+</script>
+
+<style scoped>
+    body{
+        font-family: Roboto;
+    }
+    .divName{
+        text-align: center;
+        margin-top: 20px;
+    }
+    .name{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        color: #02248C;
+    }
+    .logo{
+        text-align: center;
+        margin-top: 90px;
+        margin-bottom: 40px;
+    }
+    .logo img{
+        width: auto;
+        height: auto;
+    }
+
+    .divVxod .button{
+        width: 200px;
+        margin: auto auto 20px auto;
+        display: block;
+        background-color: #177ED8;
+        border-radius: 13px;
+    }
+    .divVxodBez .button{
+        width: 200px;
+        margin: auto auto 20px auto;
+        display: block;
+        background: none;
+        border-radius: 13px;
+        color: black;
+        border: 2px solid #007bff;
+    }
+</style>

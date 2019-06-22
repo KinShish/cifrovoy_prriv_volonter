@@ -1,8 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
+import Index from './components/index'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+Vue.component('index',Index);
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+
+}).$mount('#app');
