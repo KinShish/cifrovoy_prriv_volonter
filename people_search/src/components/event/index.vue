@@ -27,10 +27,10 @@
         <b-row>
             <b-col cols="12">
                 <ul class="menu">
-                    <li><img src="/img/addphoto.png">Добавить фото</li>
-                    <li><img src="/img/geo.png">Геолокация</li>
-                   <router-link to="/event/add"><li><img src="/img/addgeo.png">Добавить место</li></router-link>
-                    <li><img src="/img/coordinat.png">Координаты</li>
+                    <a><li><div><img src="/img/addphoto.png"></div>Добавить фото</li></a>
+                    <a><li><div><img src="/img/geo.png"></div>Геолокация</li></a>
+                    <a><li><div><img src="/img/addgeo.png"></div>Добавить место</li></a>
+                    <a><li><div><img src="/img/coordinat.png"></div>Координаты</li></a>
                 </ul>
             </b-col>
         </b-row>
@@ -80,6 +80,15 @@
         padding-inline-start: 15px;
     }
     .menu img{
-        margin-right: 10px;
+        max-width: 25px;
+        display: block;
+        margin: auto;
+    }
+    .menu a{
+        display: block;
+    }
+    .menu div{
+        width: 40px;
+        display: inline-block;
     }
 </style>
