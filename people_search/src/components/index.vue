@@ -1,28 +1,46 @@
 <template>
-    <b-container>
-        <b-row>
-            <b-col cols="12" class="divName">
-                <p class="name">People search</p>
-            </b-col>
-            <b-col cols="12" class="logo">
-                <img src="/img/logo.png">
-            </b-col>
-            <b-col cols="12" class="divVxod">
-                <b-button class="button">Регистрация</b-button>
-            </b-col>
-            <b-col cols="12" class="divVxod">
-                <router-link to="/cats"><b-button class="button">Вход</b-button></router-link>
-            </b-col>
-            <b-col cols="12" class="divVxodBez">
-                <b-button class="button" to="/catsEvents">Вход без регистрации</b-button>
-            </b-col>
-        </b-row>
-    </b-container>
+    <div>
+        <header v-if="!typeView">
+            <comHeader></comHeader>
+        </header>
+        <div v-if="typeView">
+            <b-container>
+                <b-row>
+                    <b-col cols="12" class="divName">
+                        <p class="name">People search</p>
+                    </b-col>
+                    <b-col cols="12" class="logo">
+                        <img src="/img/logo.png">
+                    </b-col>
+                    <b-col cols="12" class="divVxod">
+                        <b-button class="button">Регистрация</b-button>
+                    </b-col>
+                    <b-col cols="12" class="divVxod">
+                        <router-link to="/cats"><b-button class="button">Вход</b-button></router-link>
+                    </b-col>
+                    <b-col cols="12" class="divVxodBez">
+                        <b-button class="button" to="/cats">Вход без регистрации</b-button>
+                    </b-col>
+                </b-row>
+            </b-container>
+        </div>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
+
+    import comHeader from './comHeader'
     export default {
-        name: "index"
+        name: "index",
+        data(){
+            return{
+                typeView:true
+            }
+        },
+        components:{
+            'comHeader':comHeader,
+        },
     }
 </script>
 

@@ -1,14 +1,13 @@
 <template>
     <div>
-        <header>
-            <comHeader></comHeader>
-        </header>
         <h1>События</h1>
         <div class="row">
-            <div class="col-10 tabsSobityi">
-                <p>Транспортные</p>
-                <div class="rectangle">> </div>
-            </div>
+            <router-link to="/event">
+                <div class="col-10 tabsSobityi">
+                    <p>Транспортные</p>
+                    <div class="rectangle">> </div>
+                </div>
+            </router-link>
             <div class="col-10 tabsSobityi">
                 <p>Пожары</p>
                 <div class="rectangle">> </div>
@@ -39,11 +38,13 @@
 </template>
 
 <script>
-    import comHeader from './comHeader'
     export default {
-        name: "catsEvents",
-        components:{
-            'comHeader':comHeader,
+        name: "events",
+        mounted() {
+            this.$parent.typeView=false;
+        },
+        destroyed() {
+            this.$parent.typeView=true;
         }
     }
 </script>

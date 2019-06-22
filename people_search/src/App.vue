@@ -2,7 +2,6 @@
     <div>
         <router-view></router-view>
     </div>
-
 </template>
 
 <script>
@@ -12,65 +11,78 @@
     //import cats from './components/cats'
     import viewEvent from './components/event/index'
     import addEvent from './components/event/add'
+    //import events from './components/events'
+    import comHeader from './components/comHeader'
     import catsEvents from './components/catsEvents'
     import BootstrapVue from 'bootstrap-vue'
+    import VueGeolocation from 'vue-browser-geolocation';
     import 'bootstrap/dist/css/bootstrap.css'
     import 'bootstrap-vue/dist/bootstrap-vue.css'
+    Vue.use(VueGeolocation);
     Vue.use(VueRouter);
     Vue.use(BootstrapVue);
+    Vue.use(comHeader);
     const router = new VueRouter({
         mode: 'history',
         routes: [
             {
                 path:'/',
+                component:index,
+                name:'index',
                 meta:{
                     breadcrumbs: 'Главная'
                 },
-                component:index,
-                name:'index',
-            },
-            {
-                path:'/catsEvents',
-                meta:{
-                    breadcrumbs: 'Категории'
-                },
-                component:catsEvents,
-                name:'catsEvents',
-                /*children:[
-                    {
-                        path:'events',
-                        component:events,
-                        meta:{
-                            breadcrumbs: 'События'
-                        },
-                        name:'events'
-                    }
-                ]*/
-            },
-            {
-                path:'/event',
-                meta:{
-                    breadcrumbs: 'Событие'
-                },
-                component:viewEvent,
-                name:'/event',
                 children:[
                     {
-                        path:'add',
-                        component:addEvent,
+                        path:'cats',
                         meta:{
-                            breadcrumbs: 'Добавить событие'
+                            breadcrumbs: 'Категории'
                         },
-                        name:'addEvent'
+                        component:catsEvents,
+                        name:'cats',
+                        /*children:[
+                            {
+                                path:'events',
+                                component:events,
+                                meta:{
+                                    breadcrumbs: 'События'
+                                },
+                                name:'events'
+                            }
+                        ]*/
+                    },
+                    {
+                        path:'event',
+                        meta:{
+                            breadcrumbs: 'Событие'
+                        },
+                        component:viewEvent,
+                        name:'event',
+                        children:[
+                            {
+                                path:'add',
+                                component:addEvent,
+                                meta:{
+                                    breadcrumbs: 'Добавить событие'
+                                },
+                                name:'addEvent'
+                            }
+                        ]
                     }
                 ]
-            }
+            },
+
         ]
     });
-
     export default({
+        data(){
+            return{
+                href:'/',
+                view:true
+            }
+        },
         name: "App",
-        router
+        router:router
     })
 </script>
 

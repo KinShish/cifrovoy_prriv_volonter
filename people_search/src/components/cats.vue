@@ -35,6 +35,12 @@
         name: "index2",
         components:{
             'comHeader':comHeader,
+        },
+        mounted() {
+            this.$parent.typeView=false;
+        },
+        deactivated() {
+            this.$parent.typeView=true;
         }
     }
 </script>
