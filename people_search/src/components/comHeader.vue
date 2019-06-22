@@ -23,7 +23,7 @@
                 </template>
             </div>
                 <div class="col-12">
-                    <p class="back"><span>&#8592;</span>Назад</p>
+                    <router-link to="/" class="back"><span>&#8592;</span></router-link>
                     <ul class="buttonregistration">
                         <li><a href="#">Регистрация /</a></li>
                         <li><a href="#">Вход</a></li>
@@ -111,5 +111,14 @@
     }
     .back{
         display: inline-block;
+        margin-top: -30px;
+        margin-left: -15px;
+    }
+    .back:hover{
+        text-decoration: none;
+    }
+    .back span{
+        font-size: 50px;
+        color: white;
     }
 </style>
