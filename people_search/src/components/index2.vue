@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            sdfsdfsdfsdfsdfsdf
+            index2
         </div>
     </div>
 </template>
