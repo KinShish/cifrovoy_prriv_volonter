@@ -1,15 +1,12 @@
 <template>
     <div>
-        <div>
-            sdfsdfsdfsdfsdfsdf
-        </div>
+        dsffskdfsdkjflsdkjflskdflksdlfsdfsd
     </div>
 </template>
 
 <script>
-
     export default {
-        name: "index2",
+        name: "add"
     }
 </script>
 
