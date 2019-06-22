@@ -1,15 +1,14 @@
 <template>
-    <div class="container">
+    <div class="container headerBlock">
         <div class="row">
-            <div class="col-6">
-                <img src="public/img/logo.png" class="logo">
+            <div class="col-3">
+                <router-link to="/"><img src="/img/logo.png" class="logo"></router-link>
             </div>
-            <div class="col-6">
+            <div class="col-9">
                 <ul class="buttonregistration">
                     <li><a href="#">Регистрация /</a></li>
                     <li><a href="#">Вход</a></li>
                 </ul>
-                <button class="menu"></button>
             </div>
         </div>
     </div>
@@ -22,13 +21,17 @@
 </script>
 
 <style scoped>
-    header{
-        background-color:  #A7A7A7;
+    .headerBlock{
+        background: linear-gradient(180deg, rgba(2, 36, 140, 0.3) 0%, rgba(23, 126, 216, 0.3) 100%);;
         height: 120px;
     }
     .logo{
         width: 70px;
         margin-top: 10px;
+    }
+    .buttonregistration{
+        margin-top: 70px;
+        text-align: right;
     }
     .buttonregistration a{
         background: none;
@@ -36,7 +39,7 @@
         color: white;
         font-style: normal;
         font-weight: normal;
-        font-size: 19px;
+        font-size: 17px;
         line-height: 16px;
     }
     .buttonregistration li{
