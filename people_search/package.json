@@ -12,7 +12,9 @@
     "bootstrap-vue": "^2.0.0-rc.24",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.6"
+    "vue-browser-geolocation": "^1.8.0",
+    "vue-router": "^3.0.6",
+    "vue-yandex-maps": "^0.8.8"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",

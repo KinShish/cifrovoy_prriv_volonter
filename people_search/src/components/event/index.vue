@@ -1,11 +1,29 @@
 <template>
     <div>
-        <header>
-            <comHeader></comHeader>
-        </header>
         <router-link to="/">Главная</router-link>
         <router-link to="/event">Событие</router-link>
         <router-link to="/event/add">Добавить событие</router-link>
+        <div v-if="coords">
+            <yandex-map
+                    :coords="coords"
+                    style="width: 100%; height: 300px;"
+            >
+                <ymap-marker
+                        marker-id="1"
+                        marker-type="placemark"
+                        :coords="coords"
+                ></ymap-marker>
+                <ymap-marker
+                        marker-id="1"
+                        marker-type="circle"
+                        :coords="coords"
+                        :circle-radius="geolocation.altitude"
+                        hint-content="Hint content 1"
+                        :marker-fill="{color: '#000000', opacity: 0.4}"
+                        :marker-stroke="{color: '#ff0000', width: 5}"
+                ></ymap-marker>
+            </yandex-map>
+        </div>
         <b-row>
             <b-col cols="12">
                 <ul class="menu">
@@ -20,11 +38,31 @@
 </template>
 
 <script>
-    import comHeader from '../comHeader'
+    import { yandexMap, ymapMarker } from 'vue-yandex-maps'
     export default {
         name: "add",
-        components:{
-            'comHeader':comHeader,
+        data(){
+            return{
+                geolocation:'',
+                coords:[],
+            }
+        },
+        components:{yandexMap,ymapMarker},
+        mounted() {
+            this.$parent.typeView=false;
+            this.$getLocation({
+                enableHighAccuracy: true, //defaults to false
+                timeout: Infinity, //defaults to Infinitydf
+                maximumAge: 0 //defaults to 0
+            })
+                .then(coordinates => {
+                    this.geolocation=coordinates;
+                    this.coords.push(coordinates.lat);
+                    this.coords.push(coordinates.lng)
+                });
+        },
+        destroyed() {
+            this.$parent.typeView=true;
         }
     }
 </script>
