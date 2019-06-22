@@ -1,6 +1,6 @@
 <template>
     <comment is="comHeader"></comment>
-    <h1>sdasdasdsad</h1>
+    <h1>menu</h1>
 </template>
 
 <script>
