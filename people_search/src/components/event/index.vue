@@ -2,7 +2,7 @@
     <div>
         <router-link to="/">Главная</router-link>
         <router-link to="/event">Событие</router-link>
-        <router-link to="/event/add">Добавить событие</router-link>
+        <router-link to="/event/add">Добавить событие</router-link>{{savePoint}}
         <div v-if="coords">
             <yandex-map
                     :coords="coords"
@@ -39,16 +39,24 @@
 
 <script>
     import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+    import axios from 'axios'
     export default {
         name: "add",
         data(){
             return{
                 geolocation:'',
                 coords:[],
+                savePoint:''
             }
         },
         components:{yandexMap,ymapMarker},
         mounted() {
+            console.log(this.$root)
+            axios
+                .get(this.$root.server+'/api/event')
+                .then(res=>{
+                    this.savePoint=res.data
+                });
             this.$parent.typeView=false;
             this.$getLocation({
                 enableHighAccuracy: true, //defaults to false
