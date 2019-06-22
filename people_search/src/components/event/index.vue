@@ -29,11 +29,12 @@
                 <ul class="menu">
                     <a><li><div><img src="/img/addphoto.png"></div>Добавить фото</li></a>
                     <a><li><div><img src="/img/geo.png"></div>Геолокация</li></a>
-                    <a><li><div><img src="/img/addgeo.png"></div>Добавить место</li></a>
+                    <router-link to="/event/add"><li><div><img src="/img/addgeo.png"></div>Добавить место</li></router-link>
                     <a><li><div><img src="/img/coordinat.png"></div>Координаты</li></a>
                 </ul>
             </b-col>
         </b-row>
+        <router-view></router-view>
     </div>
 </template>
 

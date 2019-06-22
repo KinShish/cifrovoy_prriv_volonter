@@ -45,7 +45,7 @@
 
 <style scoped>
     .headerBlock{
-        background: linear-gradient(180deg, rgba(2, 36, 140, 0.3) 0%, rgba(23, 126, 216, 0.3) 100%);;
+        background: grey;
         height: 120px;
     }
     .logo{
