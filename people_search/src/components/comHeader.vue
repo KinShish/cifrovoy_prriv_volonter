@@ -1,10 +1,28 @@
 <template>
     <div class="container headerBlock">
         <div class="row">
-            <div class="col-3">
+            <div class="col-10">
                 <router-link to="/"><img src="/img/logo.png" class="logo"></router-link>
             </div>
-            <div class="col-9">
+            <div class="col-2">
+                <template>
+                    <Slide right width="250">
+                        <router-link to="/cats">
+                            <span>Государственные события</span>
+                        </router-link>
+                        <router-link to="/cats">
+                            <span>Муниципальные события</span>
+                        </router-link>
+                        <router-link to="/cats">
+                            <span>Гражданские события</span>
+                        </router-link>
+                        <router-link to="/cats">
+                            <span>События в моей зоне</span>
+                        </router-link>
+                    </Slide>
+                </template>
+            </div>
+            <div class="col-12">
                 <ul class="buttonregistration">
                     <li><a href="#">Регистрация /</a></li>
                     <li><a href="#">Вход</a></li>
@@ -15,8 +33,12 @@
 </template>
 
 <script>
+    import { Slide } from 'vue-burger-menu'
     export default {
-        name: "comHeader"
+        name: "comHeader",
+        components: {
+            Slide
+        }
     }
 </script>
 
