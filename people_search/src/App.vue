@@ -12,6 +12,7 @@
     import cats from './components/cats'
     import viewEvent from './components/event/index'
     import addEvent from './components/event/add'
+    import events from './components/events'
     import BootstrapVue from 'bootstrap-vue'
     import 'bootstrap/dist/css/bootstrap.css'
     import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -35,6 +36,16 @@
                 },
                 component:cats,
                 name:'cats',
+                children:[
+                    {
+                        path:'events',
+                        component:events,
+                        meta:{
+                            breadcrumbs: 'События'
+                        },
+                        name:'events'
+                    }
+                ]
             },
             {
                 path:'/event',

@@ -3,39 +3,28 @@
         <header>
             <comHeader></comHeader>
         </header>
-        <body>
-            <h1>События</h1>
-            <div class="row">
-                <div class="col-10 tabsSobityi">
-                    <p>Транспортные</p>
-                    <div class="rectangle">> </div>
-                </div>
-                <div class="col-10 tabsSobityi">
-                    <p>Пожары</p>
-                    <div class="rectangle">> </div>
-                </div>
-                <div class="col-10 tabsSobityi">
-                    <p>Обрушение зданий</p>
-                    <div class="rectangle">> </div>
-                </div>
-                <div class="col-10 tabsSobityi">
-                    <p>Гедрогеологические</p>
-                    <div class="rectangle">> </div>
-                </div>
-                <div class="col-10 tabsSobityi">
-                    <p>Наводнения</p>
-                    <div class="rectangle">> </div>
-                </div>
-                <div class="col-10 tabsSobityiRed">
-                    <p>Обрушение зданий</p>
-                    <div class="rectangle">> </div>
-                </div>
-                <div class="col-10 tabsSobityiRed">
-                    <p>Выброс АХОВ</p>
-                    <div class="rectangle">> </div>
-                </div>
+        <h1>Меню</h1>
+        <div class="containerCards">
+            <div class="row col-12">
+                <router-link to="cats/events" class="col-6 cardsEvents">
+                    <img src="/img/municipal.png">
+                    <p>Муниципальниые события</p>
+                </router-link>
+                <router-link to="cats/events" class="col-6 cardsEvents">
+                    <img src="/img/Gosudrastv.png">
+                    <p>Государственные события</p>
+                </router-link>
+                <router-link to="cats/events" class="col-6 cardsEvents">
+                    <img src="/img/Grazhdansty.png">
+                    <p>Гражданские события</p>
+                </router-link>
+                <router-link to="cats/events" class="col-6 cardsEvents">
+                    <img src="/img/inMyArea.png">
+                    <p>События в моей зоне</p>
+                </router-link>
             </div>
-        </body>
+        </div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -51,39 +40,30 @@
 </script>
 
 <style scoped>
+    .containerCards{
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 20px;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
     h1{
         color: #02248C;
         text-align: center;
+        margin-bottom: 60px;
     }
-    .tabsSobityi{
-        width: 50px;
-        background: rgba(83, 189, 0, 0.3);
-        border-radius: 10px;
+    .cardsEvents img{
+        display: block;
+        margin: 0 auto
+    }
+    .cardsEvents p{
+        text-align: center;
+    }
+    .cardsEvents{
         margin: 0 auto;
-        padding-top: 10px;
-        margin-bottom: 20px;
-    }
-    .tabsSobityiRed{
-        width: 50px;
-        background: rgba(216, 42, 4, 0.3);
-        border-radius: 10px;
-        margin: 0 auto;
-        padding-top: 10px;
-        margin-bottom: 20px;
-    }
-    .tabsSobityiRed p{
-        font-size: 19px;
-        font-style: normal;
-        font-weight: normal;
-    }
-    .tabsSobityi p{
-        font-size: 19px;
-        font-style: normal;
-        font-weight: normal;
-    }
-    .rectangle{
-        font-size: 30px;
-        margin-top: -50px;
-        float: right;
+        border: 1px solid red;
+        border-radius: 15px;
+        margin-left: 10px;
     }
 </style>
