@@ -1,7 +1,7 @@
 <template>
     <div>
         <header>
-            <component :is="'cats'"></component>
+            <component is="comHeader"></component>
         </header>
         <router-link to="/">Главная</router-link>
         <router-link to="/cats">Категории</router-link>
@@ -19,6 +19,7 @@
     import cats from './components/cats'
     import viewEvent from './components/event/index'
     import addEvent from './components/event/add'
+    import comHeader from './components/comHeader'
     Vue.use(VueRouter);
     const router = new VueRouter({
         mode: 'history',
@@ -64,7 +65,7 @@
         name: "App",
         router,
         components:{
-            'cats':cats
+            'comHeader':comHeader
         }
     })
 </script>
