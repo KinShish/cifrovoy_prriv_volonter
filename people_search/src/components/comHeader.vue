@@ -22,9 +22,6 @@
                     </Slide>
                 </template>
             </div>
-                <div class="col-12">
-                    <router-link to="/" class="back"><span>&#8592;</span></router-link>
-                </div>
         </div>
     </div>
 </template>
