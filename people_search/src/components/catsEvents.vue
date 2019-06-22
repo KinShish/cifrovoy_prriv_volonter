@@ -36,13 +36,13 @@
                     <div class="rectangle">> </div>
                 </div>
             </router-link>
-            <router-link to="/event" class="col-10 tabsSobityiRed">
+            <router-link to="/event" class="col-10 tabsSobityi">
                 <div>
                     <p>Обрушение зданий</p>
                     <div class="rectangle">> </div>
                 </div>
             </router-link>
-            <router-link to="/event" class="col-10 tabsSobityiRed">
+            <router-link to="/event" class="col-10 tabsSobityi">
                 <div>
                     <p>Выброс АХОВ</p>
                     <div class="rectangle">> </div>
@@ -75,23 +75,10 @@
     }
     .tabsSobityi{
         width: 50px;
-        background: black;
+        background: #177ED8;
         margin: 0 auto;
         padding-top: 10px;
         margin-bottom: 20px;
-    }
-    .tabsSobityiRed{
-        width: 50px;
-        background: black;
-        margin: 0 auto;
-        padding-top: 10px;
-        margin-bottom: 20px;
-    }
-    .tabsSobityiRed p{
-        font-size: 19px;
-        font-style: normal;
-        font-weight: normal;
-        color: white;
     }
     .tabsSobityi p{
         font-size: 19px;

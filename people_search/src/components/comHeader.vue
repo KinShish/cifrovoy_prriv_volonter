@@ -22,12 +22,7 @@
                     </Slide>
                 </template>
             </div>
-                <div class="col-12">
-                    <ul class="buttonregistration">
-                        <li><a href="#">Регистрация /</a></li>
-                        <li><a href="#">Вход</a></li>
-                    </ul>
-                </div>
+
         </div>
     </div>
 </template>
@@ -44,7 +39,6 @@
 
 <style scoped>
     .headerBlock{
-        background: grey;
         height: 120px;
     }
     .logo{
@@ -92,6 +86,9 @@
         top: 36px;
         cursor: pointer;
     }
+    div.bm-menu{
+        background: red;
+    }
     .bm-menu {
         height: 100%; /* 100% Full-height */
         width: 0; /* 0 width - change this with JavaScript */
@@ -99,14 +96,27 @@
         z-index: 1000; /* Stay on top */
         top: 0;
         left: 0;
-        background-color: rgb(63, 63, 65); /* Black*/
+        background-color: ; /* Black*/
         overflow-x: hidden; /* Disable horizontal scroll */
         padding-top: 60px; /* Place content 60px from the top */
         transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
     }
     .dropA:hover{
         text-decoration: none;
-        background-color: #303032;
+        background-color: #02248C;
+    }
+    .back{
+        display: inline-block;
+        margin-top: -30px;
+        margin-left: -15px;
+
+    }
+    .back:hover{
+        text-decoration: none;
+    }
+    .back span{
+        font-size: 50px;
+        color: black;
     }
 
 </style>
