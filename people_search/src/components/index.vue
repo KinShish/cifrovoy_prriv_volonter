@@ -8,11 +8,10 @@
                 <img src="logo.png">
             </b-col>
             <b-col cols="12" class="divVxod">
-                <b-button variant="primary" class="button">Регистрация</b-button>
+                <b-button class="button">Регистрация</b-button>
             </b-col>
             <b-col cols="12" class="divVxod">
-                <router-link to="/cats">Вход</router-link>
-
+                <router-link to="/cats"><b-button class="button">Вход</b-button></router-link>
             </b-col>
             <b-col cols="12" class="divVxodBez">
                 <b-button class="button">Вход без регистрации</b-button>
@@ -51,7 +50,6 @@
         width: auto;
         height: auto;
     }
-
     .divVxod .button{
         width: 200px;
         margin: auto auto 20px auto;
@@ -59,10 +57,20 @@
         background-color: #177ED8;
         border-radius: 13px;
     }
+    .divVxod .button:active{
+        background-color: #177ED8;
+        border-radius: 13px;
+    }
     .divVxodBez .button{
         width: 200px;
         margin: auto auto 20px auto;
         display: block;
+        background: none;
+        border-radius: 13px;
+        color: black;
+        border: 2px solid #007bff;
+    }
+    .divVxodBez .button:active{
         background: none;
         border-radius: 13px;
         color: black;
