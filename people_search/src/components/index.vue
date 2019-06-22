@@ -8,13 +8,14 @@
                 <img src="logo.png">
             </b-col>
             <b-col cols="12" class="divVxod">
-                <b-button variant="button">Регистрация</b-button>
+                <b-button variant="primary" class="button">Регистрация</b-button>
             </b-col>
             <b-col cols="12" class="divVxod">
-                <b-button variant="button">Вход</b-button>
+                <router-link to="/cats">Вход</router-link>
+
             </b-col>
             <b-col cols="12" class="divVxodBez">
-                <b-button variant="button">Вход без регистрации</b-button>
+                <b-button class="button">Вход без регистрации</b-button>
             </b-col>
         </b-row>
     </b-container>
