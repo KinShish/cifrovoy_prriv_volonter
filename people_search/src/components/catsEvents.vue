@@ -38,7 +38,7 @@
 <script>
     import comHeader from './comHeader'
     export default {
-        name: "events",
+        name: "catsEvents",
         components:{
             'comHeader':comHeader,
         }
