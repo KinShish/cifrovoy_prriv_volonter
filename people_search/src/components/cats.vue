@@ -4,21 +4,21 @@
             <comHeader></comHeader>
         </header>
         <h1>Меню</h1>
-        <div class="containerCards">
-            <div class="row col-12">
-                <router-link to="cats/events" class="col-6 cardsEvents">
+        <div class="container">
+            <div class="row">
+                <router-link to="cats/events" class="col-5 cardsEvents">
                     <img src="/img/municipal.png">
                     <p>Муниципальниые события</p>
                 </router-link>
-                <router-link to="cats/events" class="col-6 cardsEvents">
+                <router-link to="cats/events" class="col-5 cardsEvents">
                     <img src="/img/Gosudrastv.png">
                     <p>Государственные события</p>
                 </router-link>
-                <router-link to="cats/events" class="col-6 cardsEvents">
+                <router-link to="cats/events" class="col-5 cardsEvents">
                     <img src="/img/Grazhdansty.png">
                     <p>Гражданские события</p>
                 </router-link>
-                <router-link to="cats/events" class="col-6 cardsEvents">
+                <router-link to="cats/events" class="col-5 cardsEvents">
                     <img src="/img/inMyArea.png">
                     <p>События в моей зоне</p>
                 </router-link>
@@ -40,14 +40,6 @@
 </script>
 
 <style scoped>
-    .containerCards{
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 20px;
-        margin-right: auto;
-        margin-left: auto;
-
-    }
     h1{
         color: #02248C;
         text-align: center;
@@ -55,15 +47,17 @@
     }
     .cardsEvents img{
         display: block;
-        margin: 0 auto
+        margin: 0 auto;
+        margin-top: 10px;
     }
     .cardsEvents p{
+        font-size: 14px;
         text-align: center;
     }
     .cardsEvents{
         margin: 0 auto;
         border: 1px solid red;
         border-radius: 15px;
-        margin-left: 10px;
+        margin-bottom: 25px;
     }
 </style>

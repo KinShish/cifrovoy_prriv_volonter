@@ -14,7 +14,7 @@
                 <router-link to="/cats"><b-button class="button">Вход</b-button></router-link>
             </b-col>
             <b-col cols="12" class="divVxodBez">
-                <b-button class="button" to="/cats">Вход без регистрации</b-button>
+                <b-button class="button" to="/catsEvents">Вход без регистрации</b-button>
             </b-col>
         </b-row>
     </b-container>

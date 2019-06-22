@@ -1,5 +1,8 @@
 <template>
     <div>
+        <header>
+            <comHeader></comHeader>
+        </header>
         <h1>События</h1>
         <div class="row">
             <div class="col-10 tabsSobityi">
@@ -38,7 +41,7 @@
 <script>
     import comHeader from './comHeader'
     export default {
-        name: "events",
+        name: "catsEvents",
         components:{
             'comHeader':comHeader,
         }

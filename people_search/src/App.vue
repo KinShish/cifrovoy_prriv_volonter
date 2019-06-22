@@ -9,10 +9,10 @@
     import Vue from 'vue'
     import VueRouter from 'vue-router'
     import index from './components/index'
-    import cats from './components/cats'
+    //import cats from './components/cats'
     import viewEvent from './components/event/index'
     import addEvent from './components/event/add'
-    import events from './components/events'
+    import catsEvents from './components/catsEvents'
     import BootstrapVue from 'bootstrap-vue'
     import 'bootstrap/dist/css/bootstrap.css'
     import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -30,13 +30,13 @@
                 name:'index',
             },
             {
-                path:'/cats',
+                path:'/catsEvents',
                 meta:{
                     breadcrumbs: 'Категории'
                 },
-                component:cats,
-                name:'cats',
-                children:[
+                component:catsEvents,
+                name:'catsEvents',
+                /*children:[
                     {
                         path:'events',
                         component:events,
@@ -45,7 +45,7 @@
                         },
                         name:'events'
                     }
-                ]
+                ]*/
             },
             {
                 path:'/event',
