@@ -52,7 +52,6 @@
         },
         components:{yandexMap,ymapMarker},
         mounted() {
-            console.log(this.$root)
             axios
                 .get(this.$root.server+'/api/event')
                 .then(res=>{

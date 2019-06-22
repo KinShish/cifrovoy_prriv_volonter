@@ -9,8 +9,32 @@
 </template>
 
 <script>
+    import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+    import axios from 'axios'
     export default {
-        name: "add"
+        name: "add",
+        components:{yandexMap,ymapMarker},
+        mounted() {
+            axios
+                .get(this.$root.server+'/api/event')
+                .then(res=>{
+                    this.savePoint=res.data
+                });
+            this.$parent.typeView=false;
+            this.$getLocation({
+                enableHighAccuracy: true, //defaults to false
+                timeout: Infinity, //defaults to Infinitydf
+                maximumAge: 0 //defaults to 0
+            })
+                .then(coordinates => {
+                    this.geolocation=coordinates;
+                    this.coords.push(coordinates.lat);
+                    this.coords.push(coordinates.lng)
+                });
+        },
+        destroyed() {
+            this.$parent.typeView=true;
+        }
     }
 </script>
 

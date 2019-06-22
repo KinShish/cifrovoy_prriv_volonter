@@ -57,17 +57,15 @@
                             breadcrumbs: 'Событие'
                         },
                         component:viewEvent,
-                        name:'event',
-                        children:[
-                            {
-                                path:'add',
-                                component:addEvent,
-                                meta:{
-                                    breadcrumbs: 'Добавить событие'
-                                },
-                                name:'addEvent'
-                            }
-                        ]
+                        name:'event'
+                    },
+                    {
+                        path:'add/event',
+                        component:addEvent,
+                        meta:{
+                            breadcrumbs: 'Добавить событие'
+                        },
+                        name:'addEvent'
                     }
                 ]
             },
