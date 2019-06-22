@@ -1,7 +1,14 @@
 <template>
     <div>
-        <h1>Укажите точку на карте</h1>
-        <div style="height: 300px;background: red"></div>
+        <h1>Добавить событие</h1>
+        <p>Укажите точку на карте</p>
+        <div v-if="coords">
+            <yandex-map
+                    :coords="coords"
+                    style="width: 100%; height: 300px;"
+            >
+            </yandex-map>
+        </div>
         <textarea class="col-12 message" placeholder="Введите текст"></textarea>
         <br>
         <button class="createEventsBtn">Отправить</button>
@@ -10,16 +17,18 @@
 
 <script>
     import { yandexMap, ymapMarker } from 'vue-yandex-maps'
-    import axios from 'axios'
+    //import axios from 'axios'
     export default {
         name: "add",
+        data(){
+            return{
+                geolocation:'',
+                coords:[],
+                savePoint:''
+            }
+        },
         components:{yandexMap,ymapMarker},
         mounted() {
-            axios
-                .get(this.$root.server+'/api/event')
-                .then(res=>{
-                    this.savePoint=res.data
-                });
             this.$parent.typeView=false;
             this.$getLocation({
                 enableHighAccuracy: true, //defaults to false
