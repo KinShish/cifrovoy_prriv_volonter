@@ -5,7 +5,7 @@
                 <p class="name">People search</p>
             </b-col>
             <b-col cols="12" class="logo">
-                <img src="logo.png">
+                <img src="/img/logo.png">
             </b-col>
             <b-col cols="12" class="divVxod">
                 <b-button class="button">Регистрация</b-button>

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <img src="public/img/logo.png" class="logo">
+                <img src="/img/logo.png" class="logo">
             </div>
             <div class="col-6">
                 <ul class="buttonregistration">

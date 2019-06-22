@@ -4,7 +4,6 @@
             <comHeader></comHeader>
         </header>
         <router-link to="/">Главная</router-link>
-
         <router-link to="/event">Событие</router-link>
         <router-link to="/event/add">Добавить событие</router-link>
     </div>
