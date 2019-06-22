@@ -22,7 +22,6 @@
                     </Slide>
                 </template>
             </div>
-
         </div>
     </div>
 </template>
@@ -85,9 +84,6 @@
         left: 36px;
         top: 36px;
         cursor: pointer;
-    }
-    div.bm-menu{
-        background: red;
     }
     .bm-menu {
         height: 100%; /* 100% Full-height */
