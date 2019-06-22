@@ -22,7 +22,7 @@
 
 <style scoped>
     .headerBlock{
-        background: linear-gradient(180deg, rgba(2, 36, 140, 0.3) 0%, rgba(23, 126, 216, 0.3) 100%);;
+        background: grey;
         height: 120px;
     }
     .logo{
@@ -46,13 +46,5 @@
         list-style-type: none;
         display: inline-block;
         margin-top: 15px;
-    }
-    .menu{
-        border-radius: 25px;
-        width: 50px;
-        height: 50px;
-        border: 1px solid black;
-        float:right;
-        margin-top: 5px;
     }
 </style>
