@@ -1,12 +1,5 @@
 <template>
     <div>
-        <header>
-            <component is="comHeader"></component>
-        </header>
-        <router-link to="/">Главная</router-link>
-        <router-link to="/cats">Категории</router-link>
-        <router-link to="/event">Событие</router-link>
-        <router-link to="/event/add">Добавить событие</router-link>
         <router-view></router-view>
     </div>
 
@@ -15,12 +8,15 @@
 <script>
     import Vue from 'vue'
     import VueRouter from 'vue-router'
-    import index from './components/index2'
+    import index from './components/index'
     import cats from './components/cats'
     import viewEvent from './components/event/index'
     import addEvent from './components/event/add'
-    import comHeader from './components/comHeader'
+    import BootstrapVue from 'bootstrap-vue'
+    import 'bootstrap/dist/css/bootstrap.css'
+    import 'bootstrap-vue/dist/bootstrap-vue.css'
     Vue.use(VueRouter);
+    Vue.use(BootstrapVue);
     const router = new VueRouter({
         mode: 'history',
         routes: [
@@ -63,10 +59,7 @@
 
     export default({
         name: "App",
-        router,
-        components:{
-            'comHeader':comHeader
-        }
+        router
     })
 </script>
 
