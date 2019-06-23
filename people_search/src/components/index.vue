@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="min-height: 100%">
         <div v-if="typeView">
             <b-container>
                 <b-row>

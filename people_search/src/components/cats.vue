@@ -1,8 +1,5 @@
 <template>
-    <div>
-        <header>
-            <comHeader></comHeader>
-        </header>
+    <div style="min-height: 100%">
         <div class="col-12">
             <router-link to="/" class="back"><span>&#8592;</span></router-link>
             <h1>Меню</h1>

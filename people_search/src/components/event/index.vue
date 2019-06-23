@@ -39,19 +39,19 @@
                 ></ymap-marker>
             </yandex-map>
         </div>
-        <b-row>
-            <b-col cols="12">
-                <div class="description">
-                    {{savePoint.description}}
-                </div>
-                <ul class="menu">
-                    <a><li><div><img src="/img/addphoto.png"></div>Добавить фото</li></a>
-                    <a><li><div><img src="/img/geo.png"></div>Геолокация</li></a>
-                    <router-link to="/event/add"><li><div><img src="/img/addgeo.png"></div>Добавить место</li></router-link>
-                    <a><li><div><img src="/img/coordinat.png"></div>Координаты</li></a>
-                </ul>
-            </b-col>
-        </b-row>
+        <div class="col-12">
+            <div class="description">
+                {{savePoint.description}}
+            </div>
+        </div>
+        <div class="col-12 menu">
+            <a>
+                    <img src="/img/addphoto.png">Добавить фото
+            </a>
+        </div>
+        <div class="col-12 menu"><a><img src="/img/geo.png">Геолокация</a></div>
+        <div class="col-12 menu"><router-link to="/event/add"><img src="/img/addgeo.png">Добавить место</router-link></div>
+        <div class="col-12 menu"><a><img src="/img/coordinat.png">Координаты</a></div>
         <router-view></router-view>
     </div>
 </template>
@@ -95,28 +95,26 @@
 </script>
 
 <style scoped>
-    .menu li{
-        list-style: none;
-        height: 25px;
-        line-height: 25px;
-        display: block;
-        font-size: 16px;
-    }
     .menu{
-        padding-inline-start: 15px;
+        height: 65px;
+        line-height: 65px;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 15px;
+        border-radius: 27px;
         margin-top: 10px;
     }
     .menu img{
         max-width: 25px;
-        display: block;
-        margin: auto;
+        float: left;
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: 15px;
     }
     .menu a{
         display: block;
-    }
-    .menu div{
-        width: 40px;
-        display: inline-block;
+        background-color: white;
+        border-radius: 27px;
     }
     .back{
         display: inline-block;
@@ -165,7 +163,8 @@
         padding: 10px;
         margin-top: 5px;
         margin-bottom: 5px;
-        border: 2px solid #02248C;
-        border-radius: 10px;
+        background: #DFE8F0;
+        border-radius: 12.5px;
+        font-style: italic;
     }
 </style>
