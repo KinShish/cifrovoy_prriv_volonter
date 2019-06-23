@@ -27,16 +27,12 @@
 
 <script>
 
-    import comHeader from './comHeader'
     export default {
         name: "index",
         data(){
             return{
                 typeView:true
             }
-        },
-        components:{
-            'comHeader':comHeader,
         },
     }
 </script>

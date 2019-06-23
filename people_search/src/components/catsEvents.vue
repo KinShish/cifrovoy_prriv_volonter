@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="col-10 headline">
-            <router-link to="/" class="back"><span><</span></router-link>
+            <router-link to="/" class="back"><span>&#60;</span></router-link>
             <p>События</p>
         </div>
         <template>
@@ -144,7 +144,6 @@
     .headline{
         padding-left: 15px;
         padding-right: 30px;
-        margin-bottom: 60px;
         padding-top: 20px;
     }
     .dropA:hover{

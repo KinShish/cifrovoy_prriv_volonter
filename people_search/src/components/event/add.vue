@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="col-10 headline">
-            <router-link to="/cats" class="back"><span><</span></router-link>
+            <router-link to="/cats" class="back"><span>&#60;</span></router-link>
             <p class="pone">Добавить событие</p>
             <p class="pTwo">Укажите точку на карте</p>
         </div>
@@ -37,7 +37,7 @@
         </div>
         <p>Введите данные для изменения зоны ЧС</p>
         <label class=col-12 for=inputCoordin >Координаты</label>
-        <input class="col-6 form-control" id=inputCoordin type=text @keydown="onChenge()" ref="inputCoords0" :value="coords[0]"><input class=col-6 type=text @keydown="onChenge()" ref="inputCoords1" :value="coords[1]">
+        <input class="col-6" id=inputCoordin type=text @keydown="onChenge()" ref="inputCoords0" :value="coords[0]"><input class=col-6 type=text @keydown="onChenge()" ref="inputCoords1" :value="coords[1]">
         <label for=inputRadius class=col-6>Радиус</label>
         <input class=col-6 id=inputRadius type=text @keydown="onChenge()" ref="inputRadius" :value="radius">
         <label for="name">Название:</label>
@@ -120,7 +120,6 @@
     }
     .back{
         display: inline-block;
-        margin-top: -26px;
         margin-left: 0;
         float: left;
     }
@@ -159,7 +158,6 @@
     .headline{
         padding-left: 15px;
         padding-right: 30px;
-        margin-bottom: 60px;
         padding-top: 20px;
     }
     a.createEventsBtn {
