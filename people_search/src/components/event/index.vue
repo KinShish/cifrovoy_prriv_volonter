@@ -1,10 +1,16 @@
 <template>
     <div>
-        <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
+        <div class="col-12 headline">
+            <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
+            <h1>События</h1>
+        </div>
+
         <div v-if="coords">
             <yandex-map
                     :coords="coords"
                     style="width: 100%; height: 300px;"
+                    :behaviors="['drag']"
+                    :controls="['zoomControl']"
             >
                 <ymap-marker
                         marker-id="1"
@@ -99,7 +105,7 @@
     }
     .back{
         display: inline-block;
-        margin-top: -49px;
+        margin-top: -19px;
         float: left
     }
     .back:hover{
@@ -108,5 +114,10 @@
     .back span{
         font-size: 50px;
         color: #02248C;
+    }
+    .headline{
+        text-align: center;
+        padding-left: 0;
+        padding-right: 30px;
     }
 </style>
