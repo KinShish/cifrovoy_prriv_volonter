@@ -14,17 +14,8 @@
                     zoom="10"
                     :behaviors="['drag']"
                     :controls="['zoomControl']"
+                    :placemarks="placemarks"
             >
-                <ymap-marker
-                        marker-id="3"
-                        marker-type="circle"
-                        :coords="coords"
-                        :circle-radius="radius"
-                        hint-content="Hint content 1"
-                        :marker-fill="{color: '#000000', opacity: 0.4}"
-                        :marker-stroke="{color: '#ff0000', width: 5}"
-                        :balloonTemplate="'<p>Введите данные для изменения зоны ЧС</p><label class=col-12 for=inputCoordin >Координаты</label> <input class=col-6 id=inputCoordin type=text><input class=col-6 type=text><label for=inputRadius class=col-6>Радиус</label> <input class=col-6 id=inputRadius type=text  value='+radius+'>'"
-                ></ymap-marker>
             </yandex-map>
         </div>
         <label for="name">Название:</label>
@@ -38,7 +29,7 @@
 </template>
 
 <script>
-    import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+    import { yandexMap } from 'vue-yandex-maps'
     //import axios from 'axios'
     export default {
         name: "add",
@@ -47,10 +38,30 @@
                 geolocation:'',
                 coords:[],
                 radius:'1000',
-                savePoint:''
+                savePoint:'',
+                placemarks: [
+                    {
+                        coords: [],
+                        markerType:"Circle",
+                        circleRadius:1000,
+                        markerId:"3",
+                        clusterName: "1",
+                        markerFill:{color: '#000000', opacity: 0.4},
+                        markerStroke:{color: '#ff0000', width: 5},
+                        hintContent:"Hint content 1",
+                        properties: {},
+                        options: {},
+                        balloonTemplate: '<p>Введите данные для изменения зоны ЧС</p><label class=col-12 for=inputCoordin >Координаты</label> <input class=col-6 id=inputCoordin type=text><input class=col-6 type=text><label for=inputRadius class=col-6>Радиус</label> <input class=col-6 id=inputRadius type=text value>'
+                    }
+                ]
             }
         },
-        components:{yandexMap,ymapMarker},
+        components:{yandexMap},
+        methods:{
+            onChengeRadius(rad){
+                this.radius=rad.value();
+            }
+        },
         mounted() {
             this.$parent.typeView=false;
             this.$getLocation({
@@ -61,7 +72,8 @@
                 .then(coordinates => {
                     this.geolocation=coordinates;
                     this.coords.push(coordinates.lat);
-                    this.coords.push(coordinates.lng)
+                    this.coords.push(coordinates.lng);
+                    this.placemarks[0].coords= this.coords;
                 });
         },
         destroyed() {
