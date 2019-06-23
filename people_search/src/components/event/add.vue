@@ -14,52 +14,64 @@
                     zoom="10"
                     :behaviors="['drag']"
                     :controls="['zoomControl']"
-                    :placemarks="placemarks"
             >
+                <ymap-marker
+                        marker-id="1"
+                        marker-type="circle"
+                        :coords="coords"
+                        :circle-radius="radius"
+                        hint-content="Зона происшествия"
+                        :marker-fill="{color: '#000000', opacity: 0.4}"
+                        :marker-stroke="{color: '#ff0000', width: 5}"
+                ></ymap-marker>
             </yandex-map>
         </div>
+        <p>Введите данные для изменения зоны ЧС</p>
+        <label class=col-12 for=inputCoordin >Координаты</label>
+        <input class=col-6 id=inputCoordin type=text @keydown="onChenge()" ref="inputCoords0" :value="coords[0]"><input class=col-6 type=text @keydown="onChenge()" ref="inputCoords1" :value="coords[1]">
+        <label for=inputRadius class=col-6>Радиус</label>
+        <input class=col-6 id=inputRadius type=text @keydown="onChenge()" ref="inputRadius" :value="radius">
         <label for="name">Название:</label>
-        <input id="name" placeholder="Введите название события" class="col-12">
+        <input id="name" placeholder="Введите название события" class="col-12" @keydown="onChenge()" ref="inputName" :value="name">
         <br>
         <label for="message">Описание:</label>
-        <textarea id="message" class="col-12" placeholder="Введите текст"></textarea>
-        <button class="createEventsBtn">Добавить</button>
+        <textarea id="message" class="col-12" placeholder="Введите текст" @keydown="onChenge()" ref="inputDescription" >{{description}}</textarea>
+        <button class="createEventsBtn" @click="save()">Добавить</button>
         <router-link class="createEventsBtn" to="/cats">Отмена</router-link>
     </div>
 </template>
 
 <script>
-    import { yandexMap } from 'vue-yandex-maps'
-    //import axios from 'axios'
+    import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+    import axios from 'axios'
     export default {
         name: "add",
         data(){
             return{
                 geolocation:'',
                 coords:[],
+                name:'',
+                description:'',
                 radius:'1000',
                 savePoint:'',
-                placemarks: [
-                    {
-                        coords: [],
-                        markerType:"Circle",
-                        circleRadius:1000,
-                        markerId:"3",
-                        clusterName: "1",
-                        markerFill:{color: '#000000', opacity: 0.4},
-                        markerStroke:{color: '#ff0000', width: 5},
-                        hintContent:"Hint content 1",
-                        properties: {},
-                        options: {},
-                        balloonTemplate: '<p>Введите данные для изменения зоны ЧС</p><label class=col-12 for=inputCoordin >Координаты</label> <input class=col-6 id=inputCoordin type=text><input class=col-6 type=text><label for=inputRadius class=col-6>Радиус</label> <input class=col-6 id=inputRadius type=text value>'
-                    }
-                ]
             }
         },
-        components:{yandexMap},
+        components:{yandexMap,ymapMarker},
         methods:{
-            onChengeRadius(rad){
-                this.radius=rad.value();
+            onChenge(){
+                this.coords=[];
+                this.coords.push(this.$refs.inputCoords0.value);
+                this.coords.push(this.$refs.inputCoords1.value);
+                this.radius=this.$refs.inputRadius.value;
+                this.name=this.$refs.inputName.value;
+                this.description=this.$refs.inputDescription.value;
+            },
+            save(){
+                axios
+                    .post(this.$root.server+'/api/save/event',{params:{coords:this.coords,name:this.name,radius:this.radius,description:this.description}})
+                    .then(res=>{
+                        this.$router.push({ path: '/event/'+res.data.id });
+                    })
             }
         },
         mounted() {
@@ -73,7 +85,6 @@
                     this.geolocation=coordinates;
                     this.coords.push(coordinates.lat);
                     this.coords.push(coordinates.lng);
-                    this.placemarks[0].coords= this.coords;
                 });
         },
         destroyed() {
