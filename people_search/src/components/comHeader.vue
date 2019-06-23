@@ -1,9 +1,6 @@
 <template>
     <div class="container headerBlock">
         <div class="row">
-            <div class="col-10">
-                <router-link to="/"><img src="/img/logo.png" class="logo"></router-link>
-            </div>
             <div class="col-2">
                 <template>
                     <Slide right noOverlay>
@@ -33,7 +30,6 @@
 <style scoped>
     .headerBlock{
         height: 120px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
         margin-bottom: 10px;
     }
     .logo{

@@ -1,11 +1,20 @@
 <template>
     <div>
-        <div class="col-12 headline">
-            <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
-            <h3>Добавить событие</h3>
-            <p>Укажите точку на карте</p>
+        <div class="col-10 headline">
+            <router-link to="/cats" class="back"><span><</span></router-link>
+            <p class="pone">Добавить событие</p>
+            <p class="pTwo">Укажите точку на карте</p>
         </div>
-
+        <template>
+            <Slide right noOverlay>
+                <router-link class="dropA" to="/cats">
+                    <span class="drop">События</span>
+                </router-link>
+                <router-link class="dropA" to="/add/event">
+                    <span class="drop">Добавить событие</span>
+                </router-link>
+            </Slide>
+        </template>
 
         <div v-if="coords">
             <yandex-map
@@ -28,7 +37,7 @@
         </div>
         <p>Введите данные для изменения зоны ЧС</p>
         <label class=col-12 for=inputCoordin >Координаты</label>
-        <input class=col-6 id=inputCoordin type=text @keydown="onChenge()" ref="inputCoords0" :value="coords[0]"><input class=col-6 type=text @keydown="onChenge()" ref="inputCoords1" :value="coords[1]">
+        <input class="col-6 form-control" id=inputCoordin type=text @keydown="onChenge()" ref="inputCoords0" :value="coords[0]"><input class=col-6 type=text @keydown="onChenge()" ref="inputCoords1" :value="coords[1]">
         <label for=inputRadius class=col-6>Радиус</label>
         <input class=col-6 id=inputRadius type=text @keydown="onChenge()" ref="inputRadius" :value="radius">
         <label for="name">Название:</label>
@@ -44,6 +53,7 @@
 <script>
     import { yandexMap, ymapMarker } from 'vue-yandex-maps'
     import axios from 'axios'
+    import { Slide } from 'vue-burger-menu'
     export default {
         name: "add",
         data(){
@@ -56,7 +66,7 @@
                 savePoint:'',
             }
         },
-        components:{yandexMap,ymapMarker},
+        components:{yandexMap,ymapMarker,Slide},
         methods:{
             onChenge(){
                 this.coords=[];
@@ -112,7 +122,7 @@
         display: inline-block;
         margin-top: -26px;
         margin-left: 0;
-        float: left
+        float: left;
     }
     .back:hover{
         text-decoration: none;
@@ -121,11 +131,36 @@
         font-size: 50px;
         color: #02248C;
     }
+    .pone{
+        font-weight: 500;
+        font-size: 18px;
+        color: white;
+        display: block;
+    }
+    .pTwo{
+        color: white;
+        display: block;
+    }
+    .back{
+        display: block;
+        margin-left: 0;
+        float: left;
+        color:white;
+        width: 100%;
+    }
+    .back:hover{
+        text-decoration: none;
+    }
+    .back span{
+        font-size: 30px;
+        color: white;
+        line-height: 40px;
+    }
     .headline{
-        text-align: center;
-        padding-left: 0;
+        padding-left: 15px;
         padding-right: 30px;
-
+        margin-bottom: 60px;
+        padding-top: 20px;
     }
     a.createEventsBtn {
         width: 80px;

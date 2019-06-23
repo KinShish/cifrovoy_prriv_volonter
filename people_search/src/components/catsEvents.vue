@@ -1,11 +1,21 @@
 <template>
     <div>
-        <div class="col-12 headline">
-            <router-link to="/" class="back"><span>&#8592;</span></router-link>
-            <h1>События</h1>
+        <div class="col-10 headline">
+            <router-link to="/" class="back"><span><</span></router-link>
+            <p>События</p>
         </div>
+        <template>
+            <Slide right noOverlay>
+                <router-link class="dropA" to="/cats">
+                    <span class="drop">События</span>
+                </router-link>
+                <router-link class="dropA" to="/add/event">
+                    <span class="drop">Добавить событие</span>
+                </router-link>
+            </Slide>
+        </template>
 
-        <div class="row" style="margin-right: 0" v-for="event in events">
+        <div class="row" style="margin-right: 0;" v-for="event in events">
             <router-link :to="'/event/'+event.id" class="col-10 tabsSobityi">
                 <div>
                     <p>{{event.name}}</p>
@@ -55,8 +65,12 @@
 
 <script>
     import axios from 'axios'
+    import { Slide } from 'vue-burger-menu'
     export default {
         name: "events",
+        components: {
+            Slide
+        },
         data(){
             return{
                 events:[]
@@ -82,45 +96,58 @@
         color: #02248C;
 
     }
-    .headline{
-        text-align: center;
+    .headline p{
+        font-weight: 500;
+        font-size: 18px;
+        color: white;
+        display: block;
     }
     .tabsSobityi{
         width: 50px;
-        background: #177ED8;
+        background: white;
         margin: 0 auto;
         padding-top: 10px;
         margin-bottom: 20px;
+        border-radius: 30px;
+        color: black;
+    }
+    .tabsSobityi:hover{
+        text-decoration: none;
     }
     .tabsSobityi p{
         font-size: 19px;
         font-style: normal;
         font-weight: normal;
-        color: white;
+        color: black;
     }
     .rectangle{
-        color: white;
+        color: #BDBDBD;
         font-size: 30px;
         margin-top: -50px;
         float: right;
     }
     .back{
-        display: inline-block;
-        margin-top: -19px;
+        display: block;
         margin-left: 0;
-        float: left
+        float: left;
+        color:white;
+        width: 100%;
     }
     .back:hover{
         text-decoration: none;
     }
     .back span{
-        font-size: 50px;
-        color: #02248C;
+        font-size: 30px;
+        color: white;
+        line-height: 40px;
     }
     .headline{
-        text-align: center;
-        padding-left: 0;
+        padding-left: 15px;
         padding-right: 30px;
-
+        margin-bottom: 60px;
+        padding-top: 20px;
+    }
+    .dropA:hover{
+        text-decoration: none;
     }
 </style>

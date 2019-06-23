@@ -1,8 +1,5 @@
 <template>
     <div>
-        <header v-if="!typeView">
-            <comHeader></comHeader>
-        </header>
         <div v-if="typeView">
             <b-container>
                 <b-row>
@@ -16,7 +13,7 @@
                         <b-button class="button">Регистрация</b-button>
                     </b-col>
                     <b-col cols="12" class="divVxod">
-                        <router-link to="/cats"><b-button class="button">Вход</b-button></router-link>
+                        <router-link class="a" to="/cats"><b-button class="button">Вход</b-button></router-link>
                     </b-col>
                     <b-col cols="12" class="divVxodBez">
                         <b-button class="button" to="/">Вход без регистрации</b-button>
@@ -57,7 +54,7 @@
         font-weight: normal;
         font-size: 24px;
         line-height: 28px;
-        color: #02248C;
+        color: white;
     }
     .logo{
         text-align: center;
