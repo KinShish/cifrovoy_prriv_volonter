@@ -52,7 +52,7 @@
                         ]*/
                     },
                     {
-                        path:'event',
+                        path:'event/:id',
                         meta:{
                             breadcrumbs: 'Событие'
                         },
