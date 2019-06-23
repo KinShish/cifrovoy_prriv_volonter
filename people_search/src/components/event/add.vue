@@ -10,7 +10,7 @@
         <div v-if="coords">
             <yandex-map
                     :coords="coords"
-                    style="width: 100%; height: 300px;"
+                    style="width: 100%; height: 400px;"
                     zoom="10"
                     :behaviors="['drag']"
                     :controls="['zoomControl']"
@@ -23,13 +23,17 @@
                         hint-content="Hint content 1"
                         :marker-fill="{color: '#000000', opacity: 0.4}"
                         :marker-stroke="{color: '#ff0000', width: 5}"
-                        :balloonTemplate="'<p>Введите данные для изменения зоны ЧС</p><label for=inputCoordin>Координаты</label> <input id=inputCoordin type=text><input type=text><label for=inputRadius>Радиус</label> <input id=inputRadius type=text value='+radius+'>'"
+                        :balloonTemplate="'<p>Введите данные для изменения зоны ЧС</p><label class=col-12 for=inputCoordin >Координаты</label> <input class=col-6 id=inputCoordin type=text><input class=col-6 type=text><label for=inputRadius class=col-6>Радиус</label> <input class=col-6 id=inputRadius type=text  value='+radius+'>'"
                 ></ymap-marker>
             </yandex-map>
         </div>
-        <textarea class="col-12 message" placeholder="Введите текст"></textarea>
+        <label for="name">Название:</label>
+        <input id="name" placeholder="Введите название события" class="col-12">
         <br>
-        <button class="createEventsBtn">Отправить</button>
+        <label for="message">Описание:</label>
+        <textarea id="message" class="col-12" placeholder="Введите текст"></textarea>
+        <button class="createEventsBtn">Добавить</button>
+        <router-link class="createEventsBtn" to="/cats">Отмена</router-link>
     </div>
 </template>
 
@@ -67,8 +71,9 @@
 </script>
 
 <style scoped>
-    .message{
-        margin-top: 30px;
+    input.col-5{
+        border: 1px solid black;
+        margin: 0 auto;
     }
     .createEventsBtn{
         background: black;
@@ -76,6 +81,9 @@
         color: white;
         height: 30px;
         margin-bottom: 50px;
+        float: right;
+        margin-right: 20px;
+        margin-top: 20px;
     }
     .back{
         display: inline-block;
@@ -96,4 +104,10 @@
         padding-right: 30px;
 
     }
+    a.createEventsBtn {
+        width: 80px;
+        text-align: center;
+        line-height: 30px;
+    }
+
 </style>
