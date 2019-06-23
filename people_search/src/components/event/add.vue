@@ -6,7 +6,18 @@
             <yandex-map
                     :coords="coords"
                     style="width: 100%; height: 300px;"
+                    zoom="10"
             >
+                <ymap-marker
+                        marker-id="3"
+                        marker-type="circle"
+                        :coords="coords"
+                        :circle-radius="radius"
+                        hint-content="Hint content 1"
+                        :marker-fill="{color: '#000000', opacity: 0.4}"
+                        :marker-stroke="{color: '#ff0000', width: 5}"
+                        :balloonTemplate="'<p>Введите данные для изменения зоны ЧС</p><label for=inputCoordin>Координаты</label> <input id=inputCoordin type=text><input type=text><label for=inputRadius>Радиус</label> <input id=inputRadius type=text value='+radius+'>'"
+                ></ymap-marker>
             </yandex-map>
         </div>
         <textarea class="col-12 message" placeholder="Введите текст"></textarea>
@@ -24,6 +35,7 @@
             return{
                 geolocation:'',
                 coords:[],
+                radius:'1000',
                 savePoint:''
             }
         },
