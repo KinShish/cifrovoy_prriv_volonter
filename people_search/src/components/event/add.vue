@@ -1,12 +1,18 @@
 <template>
     <div>
-        <h1>Добавить событие</h1>
+        <div class="col-12 headline">
+            <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
+            <h3>Добавить событие</h3>
+        </div>
+
         <p>Укажите точку на карте</p>
         <div v-if="coords">
             <yandex-map
                     :coords="coords"
                     style="width: 100%; height: 300px;"
                     zoom="10"
+                    :behaviors="['drag']"
+                    :controls="['zoomControl']"
             >
                 <ymap-marker
                         marker-id="3"
@@ -77,6 +83,25 @@
         float: right;
         margin-right: 20px;
         margin-top: 20px;
+    }
+    .back{
+        display: inline-block;
+        margin-top: -26px;
+        margin-left: 0;
+        float: left
+    }
+    .back:hover{
+        text-decoration: none;
+    }
+    .back span{
+        font-size: 50px;
+        color: #02248C;
+    }
+    .headline{
+        text-align: center;
+        padding-left: 0;
+        padding-right: 30px;
+
     }
     a.createEventsBtn {
         width: 80px;

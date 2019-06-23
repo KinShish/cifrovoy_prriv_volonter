@@ -11,6 +11,7 @@
                     style="width: 100%; height: 300px;"
                     :behaviors="['drag']"
                     :controls="['zoomControl']"
+                    zoom="14"
             >
                 <ymap-marker
                         marker-id="1"
@@ -30,7 +31,7 @@
         </div>
         <b-row>
             <b-col cols="12">
-                <div>
+                <div class="description">
                     {{savePoint.description}}
                 </div>
                 <ul class="menu">
@@ -92,7 +93,7 @@
     }
     .menu{
         padding-inline-start: 15px;
-        margin-top: 20px;
+        margin-top: 10px;
     }
     .menu img{
         max-width: 25px;
@@ -122,5 +123,13 @@
         text-align: center;
         padding-left: 0;
         padding-right: 30px;
+    }
+    .description{
+        text-align: center;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: 2px solid #02248C;
+        border-radius: 10px;
     }
 </style>
