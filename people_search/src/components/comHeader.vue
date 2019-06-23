@@ -8,16 +8,10 @@
                 <template>
                     <Slide right noOverlay>
                         <router-link class="dropA" to="/cats">
-                            <span class="drop">Государственные события</span>
+                            <span class="drop">События</span>
                         </router-link>
-                        <router-link class="dropA" to="/cats">
-                            <span class="drop">Муниципальные события</span>
-                        </router-link>
-                        <router-link class="dropA" to="/cats">
-                            <span class="drop">Гражданские события</span>
-                        </router-link>
-                        <router-link class="dropA" to="/cats">
-                            <span class="drop">События в моей зоне</span>
+                        <router-link class="dropA" to="/add/event">
+                            <span class="drop">Добавить событие</span>
                         </router-link>
                     </Slide>
                 </template>
