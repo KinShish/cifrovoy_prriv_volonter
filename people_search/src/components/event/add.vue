@@ -3,9 +3,10 @@
         <div class="col-12 headline">
             <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
             <h3>Добавить событие</h3>
+            <p>Укажите точку на карте</p>
         </div>
 
-        <p>Укажите точку на карте</p>
+
         <div v-if="coords">
             <yandex-map
                     :coords="coords"
