@@ -2,12 +2,12 @@
     <div>
         <div class="col-12 headline">
             <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
-            <h1>События</h1>
+            <h1>{{savePoint.name}}</h1>
         </div>
 
-        <div v-if="coords">
+        <div v-if="savePoint">
             <yandex-map
-                    :coords="coords"
+                    :coords="[savePoint.coordLon,savePoint.coordLnd]"
                     style="width: 100%; height: 300px;"
                     :behaviors="['drag']"
                     :controls="['zoomControl']"
@@ -20,8 +20,8 @@
                 <ymap-marker
                         marker-id="1"
                         marker-type="circle"
-                        :coords="coords"
-                        :circle-radius="geolocation.altitude"
+                        :coords="[savePoint.coordLon,savePoint.coordLnd]"
+                        :circle-radius="savePoint.radius"
                         hint-content="Hint content 1"
                         :marker-fill="{color: '#000000', opacity: 0.4}"
                         :marker-stroke="{color: '#ff0000', width: 5}"
@@ -30,6 +30,9 @@
         </div>
         <b-row>
             <b-col cols="12">
+                <div>
+                    {{savePoint.description}}
+                </div>
                 <ul class="menu">
                     <a><li><div><img src="/img/addphoto.png"></div>Добавить фото</li></a>
                     <a><li><div><img src="/img/geo.png"></div>Геолокация</li></a>
@@ -57,7 +60,7 @@
         components:{yandexMap,ymapMarker},
         mounted() {
             axios
-                .get(this.$root.server+'/api/event')
+                .get(this.$root.server+'/api/event/'+this.$route.params.id)
                 .then(res=>{
                     this.savePoint=res.data
                 });

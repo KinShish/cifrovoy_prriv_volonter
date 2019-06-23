@@ -5,14 +5,14 @@
             <h1>События</h1>
         </div>
 
-        <div class="row" style="margin-right: 0">
-            <router-link to="/event" class="col-10 tabsSobityi">
+        <div class="row" style="margin-right: 0" v-for="event in events">
+            <router-link :to="'/event/'+event.id" class="col-10 tabsSobityi">
                 <div>
-                    <p>Транспортные</p>
+                    <p>{{event.name}}</p>
                     <div class="rectangle">> </div>
                 </div>
             </router-link>
-            <router-link to="/event" class="col-10 tabsSobityi">
+            <!--<router-link to="/event" class="col-10 tabsSobityi">
                 <div>
                     <p>Пожары</p>
                     <div class="rectangle">> </div>
@@ -47,17 +47,29 @@
                     <p>Выброс АХОВ</p>
                     <div class="rectangle">> </div>
                 </div>
-            </router-link>
+            </router-link>-->
         </div>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         name: "events",
+        data(){
+            return{
+                events:[]
+            }
+        },
         mounted() {
+            axios
+                .get(this.$root.server+'/api/all/events')
+                .then(res=>{
+                    this.events=res.data
+                });
             this.$parent.typeView=false;
+
         },
         destroyed() {
             this.$parent.typeView=true;
