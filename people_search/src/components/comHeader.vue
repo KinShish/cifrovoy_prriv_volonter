@@ -13,6 +13,9 @@
                         <router-link class="dropA" to="/add/event">
                             <span class="drop">Добавить событие</span>
                         </router-link>
+                        <router-link class="dropA" to="/people/27">
+                            <span class="drop">Эксперементальное событие</span>
+                        </router-link>
                     </Slide>
                 </template>
             </div>
