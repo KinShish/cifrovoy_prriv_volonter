@@ -44,16 +44,23 @@
 
 <script>
     import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+    import axios from 'axios'
     export default {
         name: "add",
         data(){
             return{
                 geolocation:'',
                 coords:[],
+                savePoint:''
             }
         },
         components:{yandexMap,ymapMarker},
         mounted() {
+            axios
+                .get(this.$root.server+'/api/event')
+                .then(res=>{
+                    this.savePoint=res.data
+                });
             this.$parent.typeView=false;
             this.$getLocation({
                 enableHighAccuracy: true, //defaults to false
