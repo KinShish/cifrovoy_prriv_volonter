@@ -9,7 +9,7 @@
         <div v-if="coords">
             <yandex-map
                     :coords="coords"
-                    style="width: 100%; height: 300px;"
+                    style="width: 100%; height: 400px;"
                     zoom="10"
                     :behaviors="['drag']"
                     :controls="['zoomControl']"
@@ -22,7 +22,7 @@
                         hint-content="Hint content 1"
                         :marker-fill="{color: '#000000', opacity: 0.4}"
                         :marker-stroke="{color: '#ff0000', width: 5}"
-                        :balloonTemplate="'<p>Введите данные для изменения зоны ЧС</p><label class=col-12 for=inputCoordin >Координаты</label> <input class=col-6 id=inputCoordin type=text><input class=col-6 type=text><label for=inputRadius class=col-6>Радиус</label> <input class=col-6 id=inputRadius type=text value='+radius+'>'"
+                        :balloonTemplate="'<p>Введите данные для изменения зоны ЧС</p><label class=col-12 for=inputCoordin >Координаты</label> <input class=col-6 id=inputCoordin type=text><input class=col-6 type=text><label for=inputRadius class=col-6>Радиус</label> <input class=col-6 id=inputRadius type=text  value='+radius+'>'"
                 ></ymap-marker>
             </yandex-map>
         </div>
