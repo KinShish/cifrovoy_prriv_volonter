@@ -1,8 +1,10 @@
 <template>
     <div>
-        <router-link to="/">Главная</router-link>
-        <router-link to="/event">Событие</router-link>
-        <router-link to="/event/add">Добавить событие</router-link>{{savePoint}}
+        <div class="col-12 headline">
+            <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
+            <h1>События</h1>
+        </div>
+
         <div v-if="coords">
             <yandex-map
                     :coords="coords"
@@ -85,6 +87,7 @@
     }
     .menu{
         padding-inline-start: 15px;
+        margin-top: 20px;
     }
     .menu img{
         max-width: 25px;
@@ -97,5 +100,22 @@
     .menu div{
         width: 40px;
         display: inline-block;
+    }
+    .back{
+        display: inline-block;
+        margin-top: -19px;
+        float: left
+    }
+    .back:hover{
+        text-decoration: none;
+    }
+    .back span{
+        font-size: 50px;
+        color: #02248C;
+    }
+    .headline{
+        text-align: center;
+        padding-left: 0;
+        padding-right: 30px;
     }
 </style>

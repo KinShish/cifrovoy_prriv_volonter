@@ -95,7 +95,7 @@
     .back{
         display: inline-block;
         margin-top: -19px;
-        margin-left: -15px;
+        margin-left: 0;
         float: left
     }
     .back:hover{
@@ -104,5 +104,11 @@
     .back span{
         font-size: 50px;
         color: #02248C;
+    }
+    .headline{
+        text-align: center;
+        padding-left: 0;
+        padding-right: 30px;
+
     }
 </style>

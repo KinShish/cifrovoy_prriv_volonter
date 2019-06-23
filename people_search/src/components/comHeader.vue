@@ -33,6 +33,8 @@
 <style scoped>
     .headerBlock{
         height: 120px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        margin-bottom: 10px;
     }
     .logo{
         width: 70px;
