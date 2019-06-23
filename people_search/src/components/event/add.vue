@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="col-12 headline">
-            <router-link to="/" class="back"><span>&#8592;</span></router-link>
+            <router-link to="/cats" class="back"><span>&#8592;</span></router-link>
             <h3>Добавить событие</h3>
         </div>
 
