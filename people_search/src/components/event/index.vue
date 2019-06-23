@@ -9,6 +9,8 @@
             <yandex-map
                     :coords="coords"
                     style="width: 100%; height: 300px;"
+                    :behaviors="['drag']"
+                    :controls="['zoomControl']"
             >
                 <ymap-marker
                         marker-id="1"
