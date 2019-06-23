@@ -10,6 +10,8 @@
     import index from './components/index'
     //import cats from './components/cats'
     import viewEvent from './components/event/index'
+    import viewPeople from './components/event/people'
+
     import addEvent from './components/event/add'
     //import events from './components/events'
     import comHeader from './components/comHeader'
@@ -58,6 +60,14 @@
                         },
                         component:viewEvent,
                         name:'event'
+                    },
+                    {
+                        path:'people/:id',
+                        meta:{
+                            breadcrumbs: 'Событие'
+                        },
+                        component:viewPeople,
+                        name:'people'
                     },
                     {
                         path:'add/event',

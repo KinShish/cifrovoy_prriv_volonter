@@ -6,28 +6,26 @@
         </div>
 
         <div v-if="savePoint">
+            <div v-if="workInEvent.length>0">
             <yandex-map
                     :coords="[savePoint.coordLon,savePoint.coordLnd]"
                     style="width: 100%; height: 300px;"
                     :behaviors="['drag']"
                     :controls="['zoomControl']"
-                    zoom="14"
-            >
-                <ymap-marker
-                        marker-id="1"
-                        marker-type="placemark"
-                        :coords="coords"
-                ></ymap-marker>
-                <ymap-marker
-                        marker-id=2
-                        marker-type="circle"
-                        :coords="[savePoint.coordLon,savePoint.coordLnd]"
-                        :circle-radius="savePoint.radius"
-                        hint-content="Hint content 1"
-                        :marker-fill="{color: '#000000', opacity: 0.4}"
-                        :marker-stroke="{color: '#ff0000', width: 5}"
-                ></ymap-marker>
+                    zoom="14">
+                <ymap-marker v-for="(event, index) in workInEvent" :key="index"
+                                 :marker-id='event.id'
+                                 marker-type="circle"
+                                 hint-content="Часть "
+                                 :coords="[event.coordLon,event.coordLnd]"
+                                 :marker-fill="{color: '#000000', opacity: 0.4}"
+                                 :marker-stroke="{color: '#ff0000', width: 2}"
+                                 :circle-radius="30"
+                    ></ymap-marker>
+
+
             </yandex-map>
+            </div>
         </div>
         <b-row>
             <b-col cols="12">
@@ -53,8 +51,7 @@
         name: "add",
         data(){
             return{
-                geolocation:'',
-                coords:[],
+                workInEvent:[],
                 savePoint:''
             }
         },
@@ -65,6 +62,11 @@
                 .then(res=>{
                     this.savePoint=res.data
                 });
+            axios
+                .get(this.$root.server+'/api/all/workInEvent/'+this.$route.params.id)
+                .then(res=>{
+                    this.workInEvent=res.data;
+                });
             this.$parent.typeView=false;
             this.$getLocation({
                 enableHighAccuracy: true, //defaults to false
@@ -73,8 +75,6 @@
             })
                 .then(coordinates => {
                     this.geolocation=coordinates;
-                    this.coords.push(coordinates.lat);
-                    this.coords.push(coordinates.lng)
                 });
         },
         destroyed() {
